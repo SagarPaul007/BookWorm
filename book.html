@@ -10,10 +10,14 @@
         google.books.load();
 
         let isbn = document.URL.split("=")[1];
+        
+        function alertNotFound() {
+            alert("Pdf of this book is not available rn!");
+        }
 
         function initialize() {
             var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
-            viewer.load(`ISBN:${isbn}`);
+            viewer.load(`ISBN:${isbn}`, alertNotFound);
         }
 
         google.books.setOnLoadCallback(initialize);
