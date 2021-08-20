@@ -20,6 +20,9 @@ searchEl.addEventListener("click", () => {
                 description
             } = item.volumeInfo;
             let img = item.volumeInfo.imageLinks.thumbnail;
+            img = img.split(":");
+            img[0] = "https";
+            img = img.join(":");
             let isbn = item.volumeInfo.industryIdentifiers[0].identifier;
             if (authors) authors = authors.join(", ");
 
